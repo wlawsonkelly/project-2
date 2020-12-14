@@ -18,7 +18,7 @@ $(document).ready(function() {
         return;
       }
       // If we have an email and password, run the signUpUser function
-      signUpUser(userData.email, userData.password);
+      signUpUser(userData.email, userData.username, userData.password);
       emailInput.val("");
       usernameInput.val("");
       passwordInput.val("");
