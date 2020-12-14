@@ -1,12 +1,28 @@
-<div id="instructions">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    href="https://unpkg.com/video.js@7/dist/video-js.min.css"
+    rel="stylesheet"
+  />
+  
+  <!-- City -->
+  <link
+    href="https://unpkg.com/@videojs/themes@1/dist/city/index.css"
+    rel="stylesheet"
+  />
 
-    <video id="my_video_1" class="video-js vjs-default-skin" width="640px" height="267px"
+</head>
+<body>
+    <video id="my_video_1" class="video-js vjs-theme-city" width="640px" height="267px"
         controls preload="none" poster='http://video-js.zencoder.com/oceans-clip.jpg'
         data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
       <source src="https://vjs.zencdn.net/v/oceans.mp4" type='video/mp4' />
       <source src="https://vjs.zencdn.net/v/oceans.webm" type='video/webm' />
     </video>
-  
 
     <div id="instructions">
 
@@ -17,3 +33,10 @@
           <source src="https://vjs.zencdn.net/v/oceans.webm" type='video/webm' />
         </video>
       
+
+        <script type="text/javascript" src="js/video.js"></script>
+</body>
+</html>
+
+    
+  
