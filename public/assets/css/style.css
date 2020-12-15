@@ -1,5 +1,6 @@
 /* Main */
-h1{
+
+h1 {
     text-align: center;
     color: navy;
 }
@@ -12,29 +13,41 @@ footer {
     background-color: navy;
     color: white;
     text-align: center;
-  }
+}
+
 
 /* Classes */
-.navbar-default{
+
+.navbar-default {
     background-color: navy;
 }
+
+
 /* bootstrap override */
-.form-control{
+
+.form-control {
     border-radius: 10px;
     border: 1px solid navy;
 }
 
+
 /* Ids */
 
-#signup-bttn{
+#signup-bttn {
     color: white;
     background-color: navy;
 }
 
-#navbar-text{
+#navbar-text {
     color: white;
 }
 
-#footer-text{
+#footer-text {
     color: white;
+}
+
+body {
+    background-image: url(https://www.masterseriestraining.com/wp-content/uploads/2015/03/background3.jpg);
+    background-position: cover;
+    background-attachment: fixed;
 }
