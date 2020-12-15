@@ -1,0 +1,41 @@
+body {
+    max-width: 100%;
+    height: auto;
+    background: url(https://i.pinimg.com/originals/19/fc/21/19fc21dc1f8a339ea8f302c75320a28f.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+header {
+    width: 100%;
+    height: 200px;
+    background-image: url("https://png.pngtree.com/thumb_back/fh260/back_pic/03/80/06/3757c30a762387b.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+footer {
+    width: 100%;
+    height: 200px;
+    background-image: url("https://png.pngtree.com/thumb_back/fh260/back_pic/03/80/06/3757c30a762387b.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.gray {
+    width: 100%;
+}
+
+.img-thumbnail {
+    padding: .25rem;
+    background-color: #fff;
+    border: 1px solid #6f7f8f;
+    border-radius: .25rem;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+h1 {
+    color: hotpink;
+}
