@@ -3,6 +3,7 @@
 h1 {
     text-align: center;
     color: navy;
+    font-style: italic;
 }
 
 footer {
@@ -13,6 +14,7 @@ footer {
     background-color: navy;
     color: white;
     text-align: center;
+    font-style: italic;
 }
 
 
@@ -40,14 +42,20 @@ footer {
 
 #navbar-text {
     color: white;
+    font-style: italic;
 }
 
 #footer-text {
     color: white;
+    font-style: italic;
 }
 
 body {
     background-image: url(https://www.masterseriestraining.com/wp-content/uploads/2015/03/background3.jpg);
     background-position: cover;
     background-attachment: fixed;
+}
+
+.home-footer {
+    font-style: italic;
 }
