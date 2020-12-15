@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Magnolia12",
+    "password": "password",
     "database": "wilson_db",
     "host": "127.0.0.1",
     "dialect": "mysql"

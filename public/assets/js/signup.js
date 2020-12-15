@@ -4,33 +4,39 @@ $(document).ready(function() {
     var emailInput = $("input#email-input");
     var usernameInput = $("input#username-input")
     var passwordInput = $("input#password-input");
+
+    let emailCheckBox = $("#customSwitch1");
   
     // When the signup button is clicked, we validate the email and password are not blank
     signUpForm.on("submit", function(event) {
       event.preventDefault();
+   
       var userData = {
         email: emailInput.val().trim(),
         username: usernameInput.val().trim(),
-        password: passwordInput.val().trim()
+        password: passwordInput.val().trim(),
+        emailable: emailCheckBox.val()
       };
   
       if (!userData.email || !userData.username || !userData.password) {
         return;
       }
       // If we have an email and password, run the signUpUser function
-      signUpUser(userData.email, userData.password);
+      signUpUser(userData.email, userData.username, userData.password, userData.emailable);
       emailInput.val("");
       usernameInput.val("");
       passwordInput.val("");
+      
     });
   
     // Does a post to the signup route. If successful, we are redirected to the members page
     // Otherwise we log any errors
-    function signUpUser(email, username, password) {
+    function signUpUser(email, username, password, emailable) {
       $.post("/api/signup", {
         email: email,
         username: username,
-        password: password
+        password: password,
+        emailable: emailable
       })
         .then(function(data) {
           window.location.replace("/home");
@@ -42,5 +48,12 @@ $(document).ready(function() {
     function handleLoginErr(err) {
       $("#alert .msg").text(err.responseJSON);
       $("#alert").fadeIn(500);
+    }
+    function handleModal() {
+        $('#myModal').modal('show');
+        $('#true-btn').on("click", function() {
+          emailAble = true
+        });
+        
     }
   });
