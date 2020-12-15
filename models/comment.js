@@ -11,21 +11,21 @@ module.exports = function(sequelize, DataTypes) {
             len: [1]
           }
       },
-      video: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-      }
-    });
-  
-    Comment.associate = function(models) {
-      // We're saying that a Post should belong to an Author
-      // A Post can't be created without an Author due to the foreign key constraint
-      Comment.belongsTo(models.Video, {
-        foreignKey: {
-          allowNull: false
-        }
-      });
-    };
-  
-    return Comment;
+      VideoId:{ type: DataTypes.TEXT,
+      allowNull: true
+     } });
+   return Comment;
   };
+    // Comment.associate = function(models) {
+    //   // We're saying that a Post should belong to an Author
+    //   // A Post can't be created without an Author due to the foreign key constraint
+    //   Comment.belongsTo(models.Video, {
+    //     foreignKey: {
+    //       allowNull: false
+    //     }
+    //   });
+    // };
+  
+   
+
+  //
