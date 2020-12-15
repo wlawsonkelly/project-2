@@ -48,6 +48,27 @@ module.exports = function(app) {
       });
     }
   });
+  app.get("/api/comment", function(req, res) {
+    // findAll returns all entries for a table when used with no options
+    db.Comment.findAll({}).then(function(dbComment) {
+      // We have access to the todos as an argument inside of the callback function
+      res.json(dbComment);
+    });
+  });
 
+app.post("/api/comment", function(req, res) {
+  console.log(req.body);
+  // create takes an argument of an object describing the item we want to
+  // insert into our table. In this case we just we pass in an object with a text
+  // and complete property (req.body)
+  db.Comment.create({
+    author: req.body.author,
+    body: req.body.body,
+    VideoId: req.body.VideoId
+  }).then(function(dbComment) {
+    // We have access to the new todo as an argument inside of the callback function
+    res.json(dbComment);
+  });
+});
 
 };
