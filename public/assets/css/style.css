@@ -1,58 +1,59 @@
-/* Main */
-
-h1 {
-    text-align: center;
-    color: navy;
-}
-
-h4 {
-    text-align: center;
-}
-
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: navy;
-    color: white;
-    text-align: center;
-}
-
-
-/* Classes */
-
-.navbar-default {
-    background-color: navy;
-}
-
-
-/* bootstrap override */
-
-.form-control {
-    border-radius: 10px;
-    border: 1px solid navy;
-}
-
-
-/* Ids */
-
-#signup-bttn {
-    color: white;
-    background-color: navy;
-}
-
-#navbar-text {
-    color: white;
-}
-
-#footer-text {
-    color: white;
-}
-
-
-/* body {
-    background-image: url(https://www.masterseriestraining.com/wp-content/uploads/2015/03/background3.jpg);
-    background-position: cover;
-    background-attachment: fixed;
-} */
+                /* Main */
+            
+            h1 {
+                text-align: center;
+                color: navy;
+            }
+            
+            h4 {
+                text-align: center;
+            }
+            
+            footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: navy;
+                color: white;
+                text-align: center;
+            }
+            /* Classes */
+            
+            .navbar-default {
+                background-color: navy;
+            }
+            
+            .video-fluid {
+                height: 850px;
+            }
+            /* bootstrap override */
+            
+            .form-control {
+                border-radius: 10px;
+                border: 1px solid navy;
+            }
+            /* Ids */
+            
+            #signup-bttn {
+                color: white;
+                background-color: navy;
+            }
+            
+            #navbar-text {
+                color: white;
+            }
+            
+            #footer-text {
+                color: white;
+            }
+            
+            body {
+                background-image: url(https://www.masterseriestraining.com/wp-content/uploads/2015/03/background3.jpg);
+                background-position: cover;
+                background-attachment: fixed;
+            }
+            
+            @media screen and (max-width: 480px);
+            {
+                @media screen and (max-width: 768px);
