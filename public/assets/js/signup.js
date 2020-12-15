@@ -4,16 +4,18 @@ $(document).ready(function() {
     var emailInput = $("input#email-input");
     var usernameInput = $("input#username-input")
     var passwordInput = $("input#password-input");
+
+    let emailCheckBox = $("#customSwitch1");
   
     // When the signup button is clicked, we validate the email and password are not blank
     signUpForm.on("submit", function(event) {
       event.preventDefault();
-      let emailAble = confirm("Do you want to get emails about new lessons from us?");
+   
       var userData = {
         email: emailInput.val().trim(),
         username: usernameInput.val().trim(),
         password: passwordInput.val().trim(),
-        emailable: emailAble
+        emailable: emailCheckBox.val()
       };
   
       if (!userData.email || !userData.username || !userData.password) {
@@ -24,6 +26,7 @@ $(document).ready(function() {
       emailInput.val("");
       usernameInput.val("");
       passwordInput.val("");
+      
     });
   
     // Does a post to the signup route. If successful, we are redirected to the members page
@@ -45,5 +48,12 @@ $(document).ready(function() {
     function handleLoginErr(err) {
       $("#alert .msg").text(err.responseJSON);
       $("#alert").fadeIn(500);
+    }
+    function handleModal() {
+        $('#myModal').modal('show');
+        $('#true-btn').on("click", function() {
+          emailAble = true
+        });
+        
     }
   });
