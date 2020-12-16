@@ -4,12 +4,20 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      title: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       url: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false,
         validate: {
             len: [1]
           }
+      },
+      views: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0
       }
     });
   

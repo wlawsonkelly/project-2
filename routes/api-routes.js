@@ -17,7 +17,7 @@ module.exports = function(app) {
     db.User.create({
       email: req.body.email,
       username: req.body.username,
-      password: req.body.password
+      password: req.body.password,
     })
       .then(function() {
         res.redirect(307, "/api/login");
@@ -48,11 +48,20 @@ module.exports = function(app) {
       });
     }
   });
-  app.get("/api/comment", function(req, res) {
+  app.get("/api/comment/:videoId", function(req, res) {
+    console.log("getting comments")
+    console.log(req.body)
     // findAll returns all entries for a table when used with no options
-    db.Comment.findAll({}).then(function(dbComment) {
+    db.Comment.findAll({
+      where: {
+        VideoId: req.params.videoId
+      }
+    }).then(function(dbComment) {
       // We have access to the todos as an argument inside of the callback function
       res.json(dbComment);
+
+    }).catch(function(err) {
+      res.status(401).json(err);
     });
   });
 
@@ -64,11 +73,41 @@ app.post("/api/comment", function(req, res) {
   db.Comment.create({
     author: req.body.author,
     body: req.body.body,
+    videoUrl: req.body.videoUrl,
     VideoId: req.body.VideoId
   }).then(function(dbComment) {
     // We have access to the new todo as an argument inside of the callback function
     res.json(dbComment);
   });
 });
-
+app.get("/api/video/:id", function(req, res){
+  console.log("finding video");
+  console.log(req.body);
+  db.Video.findOne({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(dbVideo){
+    res.json(dbVideo);
+  }).catch(function(err) {
+    res.send(err);
+  });
+});
+app.put("/api/video", function(req, res){
+  console.log(req.body.views);
+  db.Video.update(
+    {
+      views: req.body.views
+    },
+    {
+    where: {
+      id: req.body.id
+    }
+  }).then(function(dbVideo){
+    console.log(dbVideo)
+    res.json(dbVideo);
+  }).catch(function(err) {
+    res.send(err);
+  });
+});
 };
