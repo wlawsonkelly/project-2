@@ -105,6 +105,10 @@ footer {
     font-weight: bolder;
 }
 
+#comments-p{
+    text-align: right;
+}
+
 #user-comment {
     position: relative;
     top: 20px;
@@ -119,6 +123,11 @@ footer {
     border-radius: 50%;
     border: 1px solid black;
 }
+
+#video{
+    border: 1px solid grey;
+}
+
 
 @media screen and (max-width: 480px) {}
 
