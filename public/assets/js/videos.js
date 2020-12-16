@@ -2,8 +2,10 @@
  $(document).ready(function() {
   var yourComment = $("#your-comment-input");
   var commentContainer = $(".comments-container");
-  var videoUrl = $("video").attr("src");
-  var videoId = $('.main-video').attr('id');
+  var videoUrl = localStorage.getItem('url')
+  var videoId = localStorage.getItem("id");
+
+  $("#video").attr("src", videoUrl);
 
   var commentNumber = 0;
 
