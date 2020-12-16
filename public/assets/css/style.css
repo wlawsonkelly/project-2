@@ -1,5 +1,11 @@
 /* Main */
 
+body {
+    background-image: url(https://www.masterseriestraining.com/wp-content/uploads/2015/03/background3.jpg);
+    background-position: cover;
+    background-attachment: fixed;
+}
+
 h1 {
     text-align: center;
     color: navy;
@@ -26,6 +32,10 @@ footer {
     background-color: navy;
 }
 
+.carousel-inner {
+    height: 850px;
+}
+
 
 /* bootstrap override */
 
@@ -43,6 +53,8 @@ footer {
 
 .comments-container {
     margin-top: 10px;
+    background-color: white;
+    border: 1px solid black;
 }
 
 .comment-section-header {
@@ -86,8 +98,6 @@ footer {
     position: relative;
 }
 
-body {
-    background-image: url(https://www.masterseriestraining.com/wp-content/uploads/2015/03/background3.jpg);
-    background-position: cover;
-    background-attachment: fixed;
-}
+@media screen and (max-width: 480px) {}
+
+@media screen and (max-width: 768px) {}
