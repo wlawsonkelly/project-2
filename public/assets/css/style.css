@@ -9,11 +9,13 @@ body {
 h1 {
     text-align: center;
     color: navy;
+    font-style: italic;
 }
 
 h4 {
     text-align: center;
     color: navy;
+    font-style: italic;
 }
 
 footer {
@@ -88,6 +90,7 @@ footer {
 
 #navbar-text {
     color: white;
+    font-style: italic;
 }
 
 #footer-text {
