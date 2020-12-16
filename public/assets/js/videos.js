@@ -7,7 +7,7 @@
 
   var commentNumber = 0;
 
-   var totalViews = 0;
+  var totalViews = 0;
 
   $("#comment-btn").on("click", function(event){
     event.preventDefault();
