@@ -1,94 +1,81 @@
 // const comment = require("../../../models/comment");  
  $(document).ready(function() {
-  // Getting a reference to the input field where user adds a new todo
-  var $newItemInput = $("input.new-item");
-  // Our new todos will go inside the todoContainer
-  var $commentContainer = $(".comment-container");
-  // Adding event listeners for deleting, editing, and adding todos
-  // $(document).on("click", "button.delete", deleteComment);
-  // $(document).on("click", "button.complete", toggleComplete);
-  // $(document).on("click", ".comment-item", editcomment);
-  // $(document).on("keyup", ".comment-item", finishEdit);
-  // $(document).on("blur", ".comment-item", cancelEdit);
-  $(document).on("submit", "#comment-form", insertComment);
-  
-  $(function(){
-    var $refreshButton = $('#refresh');
-    var $results = $('#css_result');
-    
-    function refresh(){
-      var css = $('style.cp-pen-styles').text();
-      $results.html(css);
-    }
-  
-    refresh();
-    $refreshButton.click(refresh);
-    
-    // Select all the contents when clicked
-    $results.click(function(){
-      $(this).select();
+  var yourComment = $("#your-comment-input");
+  var commentContainer = $(".comments-container");
+  var videoUrl = $("#video-url").attr("src").toString();
+  var videoId = $('.main-video').attr('id');
+
+  var commentNumber = 0;
+
+   var totalViews = 0;
+
+  $("#comment-btn").on("click", function(event){
+    event.preventDefault();
+    console.log("commenting");
+    insertComment();
+  })
+
+  function getVideoInfo() {
+    $.get(`/api/video/` + videoId, function(data){
+      console.log(data);
+      console.log("here is the data");
+      $("#video-title").text(data.title)
+      $("#view-number").text(data.views + 1);
+      totalViews = data.views + 1
+      $("#upload-date").text(data.createdAt);
+      updateVideoViews(data);
     });
-  });
-
-  var comments = [];
-  getComments();
-
-
-function initializeRows() {
-    $commentContainer.empty();
-    var rowsToAdd = [];
-    for (var i = 0; i < comments.length; i++) {
-      rowsToAdd.push(createNewRow(comments[i]));
-    }
-     $commentContainer.prepend(rowsToAdd);
-  };
-
-
-  function getComment() {
-    $.get("/api/comment", function(data) {
-      comment = data;
-      initializeRows();
-    })};
-
-
-  function updateComment(comment) {
-    $.ajax({
-      method: "PUT",
-      url: "/api/comment",
-      data: comment
-    }).then(getComment);
+    
   }
 
-  function insertComment(event) {
-    event.preventDefault();
+  function updateVideoViews(data) {
+  data.views = data.views + 1;
+  $.ajax({
+    method: "PUT",
+    url: "/api/video",
+    data: data
+  }).then(console.log(data));
+  }
+  
+
+  function getComments() {
+    $.get(`/api/comment/`+ videoId, function(data){
+      console.log(data);
+      commentNumber = data.length;
+      $("#comments-number").text(commentNumber)
+      for (var i = 0; i < data.length; i++) {
+        let newRow = $(`<div class="row comment-row"> <div class="col-md-3"> </div> <div class="col-md-2"> <img class="comment-avatar" src="https://www.mandysam.com/img/random.jpg" alt=""> <span id="comment-username">${data[i].author}</span></div><div class="col-md-4"><span id="user-comment"> ${data[i].body} </span></div><div class="col-md-3"></div></div>`);
+        commentContainer.prepend(newRow);
+      };
+    });
+  };
+
+  function insertComment() {
+    console.log("above is video url")
+    //make less ugly later
+    $.get("/api/user_data").then(function(data) {
+      //need to perfect this get route
+      console.log("hello");
+      console.log(data);
     var comment = {
-      text: $newItemInput.val().trim(),
-      complete: false
+      author: data.username,
+      body: yourComment.val().trim(),
+      videoUrl: videoUrl,
+      VideoId: videoId
     };
 
-    $.post("/api/comment", comment, getComment);
-    $newItemInput.val("");
-  };
-  
-   
-  
-  function createNewRow(comment) {
-    var $newInputRow = $(
-      [
-        "<li class='list-group-item comment-item'>",
-        "<span>",
-        comment.text,
-        "</span>",
-        "<input type='text' class='edit' style='display: none;'>",
-        "<button class='delete btn btn-danger'>x</button>",
-        "<button class='complete btn btn-primary'>✓</button>",
-        "</li>"
-      ].join("")
-    ); $newInputRow.find("button.delete").data("id", comment.id);
-    $newInputRow.find("input.edit").css("display", "none");
-    $newInputRow.data("todo", comment);
-    if (comment.complete) {
-      $newInputRow.find("span").css("text-decoration", "line-through");
-    }
-    return $newInputRow;
-  }});
+    $.post(`/api/comment`, comment, newComment(comment));
+    yourComment.val("");
+  });
+};
+
+  function newComment(comment) {
+    let newRow = $(`<div class="row comment-row"> <div class="col-md-3"> </div> <div class="col-md-2"> <img class="comment-avatar" src="https://www.mandysam.com/img/random.jpg" alt=""> <span id="comment-username">${comment.author}</span></div><div class="col-md-4"><span id="user-comment"> ${comment.body} </span></div><div class="col-md-3"></div></div>`);
+    //MORE CODE HERE
+    commentNumber++;
+    $("#comments-number").text(commentNumber)
+    commentContainer.prepend(newRow);
+   };
+   getVideoInfo();
+  getComments();
+  });
