@@ -2,7 +2,7 @@
  $(document).ready(function() {
   var yourComment = $("#your-comment-input");
   var commentContainer = $(".comments-container");
-  var videoUrl = $("#video-url").attr("src").toString();
+  var videoUrl = $("video").attr("src");
   var videoId = $('.main-video').attr('id');
 
   var commentNumber = 0;
