@@ -12,6 +12,8 @@
   var user = {};
 
   var totalViews = 0;
+  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
 
   $("#comment-btn").on("click", function(event){
     event.preventDefault();
@@ -34,7 +36,14 @@
       $("#video-title").text(data.title)
       $("#view-number").text(data.views + 1);
       totalViews = data.views + 1
-      $("#upload-date").text(data.createdAt);
+      console.log(data.createdAt);
+      var rawDate = data.createdAt.split("T")[0];
+      // var rawDate = data.createdAt.replace(".000Z", "");
+      // var lessRawDate = rawDate.replace("T", " ");
+      console.log(rawDate);
+      var date = new Date(rawDate.replace(/-/g,"/"));
+      console.log(date);
+      $("#upload-date").text(date.toLocaleDateString("en-US", options));
       updateVideoViews(data);
     });
     
