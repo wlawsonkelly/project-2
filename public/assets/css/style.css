@@ -5,6 +5,10 @@ h1 {
     color: navy;
 }
 
+h4 {
+    text-align: center;
+}
+
 footer {
     position: fixed;
     left: 0;
@@ -30,26 +34,29 @@ footer {
     border: 1px solid navy;
 }
 
-.comment-avatar{
+.comment-avatar {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     border: 1px solid black;
 }
 
-.comments-container{
+.comments-container {
     margin-top: 10px;
 }
-.comment-section-header{
+
+.comment-section-header {
     margin-top: 10px;
 }
-.your-comment-input{
+
+.your-comment-input {
     border-bottom: 1px solid grey;
 }
 
-.comment-row{
+.comment-row {
     margin-bottom: 7px;
 }
+
 
 /* Ids */
 
@@ -58,7 +65,7 @@ footer {
     background-color: navy;
 }
 
-#comment-btn{
+#comment-btn {
     color: white;
     background-color: navy;
 }
@@ -71,15 +78,13 @@ footer {
     color: white;
 }
 
-#comment-username{
+#comment-username {
     position: relative;
-    
-}
-#user-comment{
-    position: relative;
-
 }
 
+#user-comment {
+    position: relative;
+}
 
 body {
     background-image: url(https://www.masterseriestraining.com/wp-content/uploads/2015/03/background3.jpg);
