@@ -18,7 +18,7 @@ $(document).ready(function() {
         "url": "https://dawn2k-random-german-profiles-and-names-generator-v1.p.rapidapi.com/?format=json&count=1&gender=b&maxage=40&minage=30&cc=all&email=gmail.com%2Cyahoo.com&pwlen=12&ip=a&phone=l%2Ct%2Co&uuid=1&lic=1&color=1&seed=helloworld&images=1",
         "method": "GET",
         "headers": {
-          "x-rapidapi-key": dotenv.imageApi,
+          "x-rapidapi-key": "2a3ff2005fmsh8e47ce61e569efdp1fefefjsn5fa2b36d932c",
           "x-rapidapi-host": "dawn2k-random-german-profiles-and-names-generator-v1.p.rapidapi.com"
         }
       };
