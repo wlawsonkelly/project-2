@@ -1,4 +1,3 @@
-var dotenv = require("dotenv").config();
 
 $(document).ready(function() {
     // Getting references to our form and input
