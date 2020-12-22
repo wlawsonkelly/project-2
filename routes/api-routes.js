@@ -18,6 +18,7 @@ module.exports = function(app) {
       email: req.body.email,
       username: req.body.username,
       password: req.body.password,
+      profileUrl: req.body.profileUrl
     })
       .then(function() {
         res.redirect(307, "/api/login");
@@ -44,7 +45,8 @@ module.exports = function(app) {
       res.json({
         email: req.user.email,
         username: req.user.username,
-        id: req.user.id
+        id: req.user.id,
+        profileUrl: req.user.profileUrl
       });
     }
   });
@@ -74,7 +76,8 @@ app.post("/api/comment", function(req, res) {
     author: req.body.author,
     body: req.body.body,
     videoUrl: req.body.videoUrl,
-    VideoId: req.body.VideoId
+    VideoId: req.body.VideoId,
+    profileUrl: req.body.profileUrl
   }).then(function(dbComment) {
     // We have access to the new todo as an argument inside of the callback function
     res.json(dbComment);
