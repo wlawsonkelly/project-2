@@ -14,6 +14,8 @@
 * Just use your preferred browser. 
 ## Usage
 * For daily usage. 
+## Screenshot
+![Screenshot](public/assets/img/Screenshot.png)
 ## Contributing
 * When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change. Please note we have a code of conduct, please follow it in all your interactions with the project.
 ## Link to deployed version of the app
